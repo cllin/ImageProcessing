@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Image Processing</string>
+	<string name="binarization_radiobutton_name">Binarization</string>
+	<string name="grayscale_radiobutton_name">Gray Scale</string>
+	<string name="sobel_radiobutton_name">Sobel</string>
+	<string name="process_button_name">Process</string>
+	<string name="next_image_button_name">Next Image</string>
+	<string name="last_image_button_name">Last Image</string>
+	
+</resources>

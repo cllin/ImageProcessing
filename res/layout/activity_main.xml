@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+    </RelativeLayout>    
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="bottom"
+		android:orientation="vertical" >
+
+	    <include layout="@layout/radiogroup_processor" />
+	    
+		<Button
+			android:id="@+id/process_button"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/process_button_name"
+			android:textSize="16sp"
+			android:textStyle="bold"/>
+		<Button
+			android:id="@+id/last_image_button"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/last_image_button_name"
+			android:textSize="16sp"
+			android:textStyle="bold"/>
+		<Button
+			android:id="@+id/next_image_button"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/next_image_button_name"
+			android:textSize="16sp"
+			android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

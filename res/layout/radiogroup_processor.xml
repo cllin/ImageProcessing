@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical" >
+  	<RadioGroup
+		android:id="@+id/select_process_radiogroup"
+		android:orientation="horizontal"
+		android:gravity="center"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" >
+		<RadioButton
+			android:id="@+id/binarization_radiobutton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="false"
+	        android:text="@string/binarization_radiobutton_name" />
+		<RadioButton
+			android:id="@+id/grayscale_radiobutton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="false"
+	        android:text="@string/grayscale_radiobutton_name" />
+		<RadioButton
+			android:id="@+id/sobel_radiobutton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:checked="false"
+	        android:text="@string/sobel_radiobutton_name" />
+	</RadioGroup>
+</LinearLayout>
