@@ -3,10 +3,13 @@ package com.cllin.imageprocessing.processing;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.renderscript.Allocation;
 import android.renderscript.RenderScript;
 
 import com.cllin.imageprocessing.helper.Processor;
+import com.cllin.imageprocessing.processing.processor.BinarizeProcessor;
+import com.cllin.imageprocessing.processing.processor.GrayScaleProcessor;
+import com.cllin.imageprocessing.processing.processor.SobelProcessor;
+import com.cllin.imageprocessing.processing.processor.SuperProcessor;
 
 public class ImageProcessor {
 	
@@ -24,32 +27,27 @@ public class ImageProcessor {
 		return processor;
 	}
 	
-	public Bitmap process(Processor processor, Bitmap input) throws Exception {
+	public Bitmap process(Processor processorType, Bitmap input) throws Exception {
 		if (mRS == null) throw new Exception("The processor is not properly initialized");
 		
-		Bitmap output = Bitmap.createBitmap(input.getWidth(), input.getHeight(), input.getConfig());
-		Allocation inputAllocation = Allocation.createFromBitmap(mRS, input);
-		Allocation outputAllocation = Allocation.createFromBitmap(mRS, output);
+		Bitmap output = null;
+		SuperProcessor processor;
 		
-		switch (processor) {
+		switch (processorType) {
 		case BINARIZE:
-			
-			ScriptC_binarize mBinarizeScript = new ScriptC_binarize(mRS);
-			mBinarizeScript.forEach_root(inputAllocation, outputAllocation);
+			processor = new BinarizeProcessor(mRS);
+			output = processor.process(input);
 			break;
 		case SOBEL:
-			
-			ScriptC_sobel mSobelScript = new ScriptC_sobel(mRS);
-			mSobelScript.forEach_root(inputAllocation, outputAllocation);
+			processor = new SobelProcessor(mRS);
+			output = processor.process(input);
 			break;
 		case GRAYSCALE:
-			
-			ScriptC_grayscale mGrayScaleScript = new ScriptC_grayscale(mRS);
-			mGrayScaleScript.forEach_root(inputAllocation, outputAllocation);
+			processor = new GrayScaleProcessor(mRS);
+			output = processor.process(input);
 			break;
 		}
 		
-		outputAllocation.copyTo(output);
 		return output;
 	}
 }

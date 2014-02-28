@@ -1,5 +1,5 @@
 #pragma version(1)
-#pragma rs java_package_name(com.cllin.imageprocessing.processing)
+#pragma rs java_package_name(com.cllin.imageprocessing.processing.processor)
 
 #define MSG_TAG "BinarizeFromRenderScript"
 

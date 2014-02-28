@@ -115,11 +115,6 @@ public class MainActivity extends Activity implements OnClickListener, OnChecked
 		
 		Log.d(MSG_TAG, "selection: "+ mCurrentSelection.toString());
 		
-		if (mCurrentSelection == Processor.SOBEL) {
-			Toast.makeText(getApplication(), "SOBEL DETECTION IS UNDER CONSTRUCTION", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		
 		try {
 			output = processor.process(mCurrentSelection, mBitmap);
 			setNewBitmap(output);
